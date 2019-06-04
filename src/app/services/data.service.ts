@@ -1,32 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from "rxjs/operators";
+import { catchError, tap } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
-  private getallmakesUrl = 'https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json';
-  private getmanufacturerdetailsUrl = 'https://vpic.nhtsa.dot.gov/api/vehicles/getmanufacturerdetails/';
+  private productsUrl = 'http://5cf50f10ca57690014ab396f.mockapi.io/api/products';
+  private productUrl = 'http://5cf50f10ca57690014ab396f.mockapi.io/api/products/';
   constructor(private http: HttpClient) { }
 
-
-  getMakes()  {
-    return this.http.get(this.getallmakesUrl).pipe(
+  getProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.productsUrl).pipe(
       tap(data => {
-        //console.log(`All: ${JSON.stringify(data)}`)
+        console.log(`All: ${JSON.stringify(data)}`)
       }),
       catchError(this.handleError)
     );
   }
 
-  getBrand(brand: string) {
-    return this.http.get(this.getmanufacturerdetailsUrl + brand+ "?format=json").pipe(
+  getProduct(id: string) {
+    return this.http.get<Product[]>(this.productUrl + id).pipe(
       tap(data => {
-        //console.log(`manufacturerdetail: ${JSON.stringify(data)}`)
+        console.log(`manufacturerdetail: ${JSON.stringify(data)}`)
       }),
       catchError(this.handleError)
     );
@@ -43,4 +41,15 @@ export class DataService {
     return throwError(errorMessage);
   }
 
+}
+
+export interface Product {
+  id: number;
+  Name: string;
+  SKU: string;
+  Date: string;
+  Description: string;
+  Price: number;
+  starRating: number;
+  Image: string;
 }
