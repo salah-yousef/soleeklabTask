@@ -17,12 +17,14 @@ import { Observable } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
   dataSource: Observable<Product[]>;
-  columnsToDisplay = ['id', 'Name', 'SKU', 'Date'];
+  columnsToDisplay = ['id', 'Name', 'SKU', 'Date', 'Price'];
+  expandedElement: Product | null;
   constructor(private dataservice: DataService) {  }
 
   ngOnInit() {
     this.dataSource = this.dataservice.getProducts();
   }
+
 
 }
 

@@ -1,0 +1,11 @@
+<div *ngFor="let star of stars">
+    <div class="crop"
+         [style.width.rem]="star+0.3"
+         [title]="rating"
+         *ngIf='star >0'
+         >
+      <div style="width: 75px">
+        <mat-icon>star_rate</mat-icon>
+      </div>
+    </div>
+</div>
