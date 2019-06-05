@@ -1,0 +1,12 @@
+<mat-sidenav-container >
+    <mat-toolbar color="secondary">
+    <mat-toolbar-row>
+        <button mat-icon-button class="logo"  [routerLink]="['/products']">
+            <img src="./assets/img/logo.png" alt="Mylogo">
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-fab color="primary" (click)="onNewProduct()">NEW</button>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</mat-sidenav-container>

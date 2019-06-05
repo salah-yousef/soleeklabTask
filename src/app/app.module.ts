@@ -8,12 +8,16 @@ import { MaterialModule } from './shared/material.module';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StarComponent } from './components/star/star.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    StarComponent
+    StarComponent,
+    NavbarComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
