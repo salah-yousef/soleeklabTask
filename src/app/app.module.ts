@@ -11,6 +11,7 @@ import { StarComponent } from './components/star/star.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { FormsModule } from '@angular/forms';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     ProductsComponent,
     StarComponent,
     NavbarComponent,
-    NewProductComponent
+    NewProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

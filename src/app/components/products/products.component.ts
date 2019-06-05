@@ -3,6 +3,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../shared/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -20,10 +21,18 @@ export class ProductsComponent implements OnInit {
   dataSource: Observable<Product[]>;
   columnsToDisplay = ['id', 'Name', 'SKU', 'Date', 'Price'];
   expandedElement: Product | null;
-  constructor(private dataservice: DataService) {  }
+  constructor(private dataservice: DataService, private router: Router) {  }
 
   ngOnInit() {
     this.dataSource = this.dataservice.getProducts();
+  }
+
+  onDelete(id: number) {
+    this.dataservice.deleteProduct(id).subscribe((data) => {
+      console.log(data);
+      this.dataSource = this.dataservice.getProducts();
+      this.router.navigate(['/']);
+    })
   }
 
 

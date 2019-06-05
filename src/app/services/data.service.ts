@@ -41,6 +41,10 @@ export class DataService {
 
   }
 
+  deleteProduct(id: number) {
+    return this.http.delete<Product>(this.productUrl + id, httpOptions);
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

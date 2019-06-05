@@ -20,7 +20,13 @@
           <span class="example-element-description-attribution">
               <app-star [rating]='element.starRating'></app-star>
           </span>
-
+          <br>
+          <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon" (click)="onDelete(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
         </div>
       </div>
     </td>
