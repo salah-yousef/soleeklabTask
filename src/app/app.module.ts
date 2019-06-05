@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StarComponent } from './components/star/star.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewProductComponent } from './components/new-product/new-product.compon
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

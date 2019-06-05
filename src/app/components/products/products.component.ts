@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
+import { Product } from '../../shared/product';
 
 @Component({
   selector: 'app-products',
@@ -28,14 +29,3 @@ export class ProductsComponent implements OnInit {
 
 }
 
-
-export interface Product {
-    id: number;
-    Name: string;
-    SKU: string;
-    Date: string;
-    Description: string;
-    Price: number;
-    starRating: number;
-    Image: string;
-}

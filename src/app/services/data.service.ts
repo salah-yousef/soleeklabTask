@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Product } from '../shared/product';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +27,18 @@ export class DataService {
     );
   }
 
-  getProduct(id: string) {
+  getProduct(id: string): Observable<Product[]> {
     return this.http.get<Product[]>(this.productUrl + id).pipe(
       tap(data => {
-        console.log(`manufacturerdetail: ${JSON.stringify(data)}`)
+        console.log(`Products: ${JSON.stringify(data)}`)
       }),
       catchError(this.handleError)
     );
+  }
+
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.productUrl, product, httpOptions);
+
   }
 
   private handleError(err: HttpErrorResponse) {
@@ -41,15 +52,4 @@ export class DataService {
     return throwError(errorMessage);
   }
 
-}
-
-export interface Product {
-  id: number;
-  Name: string;
-  SKU: string;
-  Date: string;
-  Description: string;
-  Price: number;
-  starRating: number;
-  Image: string;
 }
