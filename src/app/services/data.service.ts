@@ -14,8 +14,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DataService {
-  private productsUrl = 'http://5cf50f10ca57690014ab396f.mockapi.io/api/products';
-  private productUrl = 'http://5cf50f10ca57690014ab396f.mockapi.io/api/products/';
+  private productsUrl = 'https://5cf50f10ca57690014ab396f.mockapi.io/api/products';
+  private productUrl = 'https://5cf50f10ca57690014ab396f.mockapi.io/api/products/';
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]>{
