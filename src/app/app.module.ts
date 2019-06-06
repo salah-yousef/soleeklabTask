@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     StarComponent,
     NavbarComponent,
     NewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     HttpClientModule,
     FormsModule
   ],
+  entryComponents: [AlertComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
