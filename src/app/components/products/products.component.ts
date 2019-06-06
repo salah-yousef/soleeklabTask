@@ -27,6 +27,10 @@ export class ProductsComponent implements OnInit {
     this.dataSource = this.dataservice.getProducts();
   }
 
+  onEdit(id: number) {
+    this.router.navigate(['/edit/' + id]);
+  }
+
   onDelete(id: number) {
     this.dataservice.deleteProduct(id).subscribe((data) => {
       console.log(data);

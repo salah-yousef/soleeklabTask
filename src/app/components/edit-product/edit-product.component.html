@@ -1,3 +1,32 @@
-<p>
-  edit-product works!
-</p>
+
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div class="example-container mat-elevation-z8">
+          <mat-form-field>
+            <input matInput placeholder="Name" ngModel name="Name" required [(ngModel)]="product.Name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="SKU" ngModel name="SKU" required [(ngModel)]="product.SKU">
+          </mat-form-field>
+
+            <mat-form-field>
+              <input type="date" matInput placeholder="Date" ngModel name="Date" required [(ngModel)]="product.Date">
+            </mat-form-field>
+            <mat-form-field>
+              <input type="number" matInput placeholder="Price" ngModel name="Price" required [(ngModel)]="product.Price">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="number" matInput placeholder="starRating" ngModel name="starRating" required [(ngModel)]="product.starRating">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="ImageUrl" ngModel name="Image" required [(ngModel)]="product.Image">
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea matInput placeholder="Description" ngModel  name="Description" required [(ngModel)]="product.Description"></textarea>
+            </mat-form-field>
+
+
+        <button type="submit" [disabled]="!myForm.form.valid" color="primary" mat-stroked-button>Submit</button>
+      </div>
+  </form>

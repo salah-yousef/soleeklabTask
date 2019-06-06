@@ -27,10 +27,10 @@ export class DataService {
     );
   }
 
-  getProduct(id: string): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productUrl + id).pipe(
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(this.productUrl + id).pipe(
       tap(data => {
-        console.log(`Products: ${JSON.stringify(data)}`)
+        console.log(`Products: ${JSON.stringify(data)}`);
       }),
       catchError(this.handleError)
     );
@@ -38,7 +38,10 @@ export class DataService {
 
   addProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.productUrl, product, httpOptions);
+  }
 
+  editProduct(product: Product, id: number): Observable<Product> {
+    return this.http.put<Product>(this.productUrl + id, product, httpOptions);
   }
 
   deleteProduct(id: number) {

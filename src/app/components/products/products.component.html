@@ -21,7 +21,7 @@
               <app-star [rating]='element.starRating'></app-star>
           </span>
           <br>
-          <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+          <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click)="onEdit(element.id)">
               <mat-icon>edit</mat-icon>
             </button>
             <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon" (click)="onDelete(element.id)">
