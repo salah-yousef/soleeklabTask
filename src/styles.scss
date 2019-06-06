@@ -2,3 +2,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  padding-right: 24px !important;
+}
