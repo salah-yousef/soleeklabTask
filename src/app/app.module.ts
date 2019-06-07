@@ -13,6 +13,7 @@ import { NewProductComponent } from './components/new-product/new-product.compon
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { ShowProductComponent } from './components/show-product/show-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AlertComponent } from './components/alert/alert.component';
     NavbarComponent,
     NewProductComponent,
     EditProductComponent,
-    AlertComponent
+    AlertComponent,
+    ShowProductComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { AlertComponent } from './components/alert/alert.component';
     HttpClientModule,
     FormsModule
   ],
-  entryComponents: [AlertComponent],
+  entryComponents: [AlertComponent, ShowProductComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -11,17 +11,7 @@ export class AlertComponent {
   message = 'Are you sure?';
   confirmButtonText = 'Yes';
   cancelButtonText = 'Cancel';
-  constructor(
-    @Inject(MAT_DIALOG_DATA) private data: any,
-    private dialogRef: MatDialogRef<AlertComponent>) {
-      if(data){
-    this.message = data.message || this.message;
-    if (data.buttonText) {
-      this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
-      this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
-    }
-      }
-  }
+  constructor(private dialogRef: MatDialogRef<AlertComponent>) { }
 
   onConfirmClick(): void {
     this.dialogRef.close(true);

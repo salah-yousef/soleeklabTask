@@ -27,13 +27,11 @@ export class EditProductComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.dataservice.getProduct(this.id).subscribe(product => {
-      console.log(product);
       this.product = product;
     });
   }
 
   onSubmit({ value, valid }: { value: Product, valid: boolean }) {
-    console.log(value, valid);
     this.dataservice.editProduct(value, +this.id).subscribe(() => {
       this.router.navigate(['/']);
     });

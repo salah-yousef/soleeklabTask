@@ -4,8 +4,9 @@ import { DataService } from '../../services/data.service';
 import { Observable } from 'rxjs';
 import { Product } from '../../shared/product';
 import { Router } from '@angular/router';
-import { MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar, MatBottomSheet } from '@angular/material';
 import { AlertComponent } from '../alert/alert.component';
+import { ShowProductComponent } from '../show-product/show-product.component';
 
 @Component({
   selector: 'app-products',
@@ -27,7 +28,8 @@ export class ProductsComponent implements OnInit {
     private dataservice: DataService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private dialog: MatDialog) {  }
+    private dialog: MatDialog,
+    private bottomSheet: MatBottomSheet) {  }
 
   ngOnInit() {
     this.dataSource = this.dataservice.getProducts();
@@ -38,20 +40,11 @@ export class ProductsComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    const dialogRef = this.dialog.open(AlertComponent,{
-      data:{
-        message: 'Are you sure want to delete?',
-        buttonText: {
-          ok: 'Save',
-          cancel: 'No'
-        }
-      }
-    });
+    const dialogRef = this.dialog.open(AlertComponent);
 
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
         this.dataservice.deleteProduct(id).subscribe((data) => {
-          console.log(data);
           this.dataSource = this.dataservice.getProducts();
           this.router.navigate(['/']);
         });
@@ -60,6 +53,10 @@ export class ProductsComponent implements OnInit {
         });
       }
     });
+  }
+
+  onView(product: Product) {
+    this.bottomSheet.open(ShowProductComponent, {data: product});
   }
 }
 

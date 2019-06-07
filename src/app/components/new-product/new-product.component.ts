@@ -15,7 +15,6 @@ export class NewProductComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: Product, valid: boolean }) {
-    console.log(value, valid);
     this.dataservice.addProduct(value).subscribe(() => {
       this.router.navigate(['/']);
     });

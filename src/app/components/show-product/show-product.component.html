@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar
+      class="example-header-image"
+      [ngStyle]="{'background-image': 'url(' + product.Image + ')', 'background-size': 'cover'  }"
+    ></div>
+    <mat-card-title>{{product?.Name}}</mat-card-title>
+    <mat-card-subtitle>{{product?.Description}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+        ID: {{product?.id}}
+    </p>
+    <p>
+        SKU: {{product?.SKU}}
+    </p>
+    <p>
+        Price: {{product?.Price}}
+    </p>
+    <p>
+        Date: {{product?.Date}}
+    </p>
+    <p>
+        Star Rating: {{product?.starRating}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onClose($event)">OK</button>
+  </mat-card-actions>
+</mat-card>
